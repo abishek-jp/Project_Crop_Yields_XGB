@@ -1,17 +1,105 @@
-body{margin:0;background:#f6f8fc;display:flex;justify-content:center;align-items:center;height:100vh;font-family:Inter,Arial,sans-serif}
-.center-container{display:flex;flex-direction:column;gap:1rem}
-.main-btn{width:220px;padding:.75rem 1rem;font-size:1.1rem;font-weight:600;border-radius:10px;border:none;cursor:pointer;background:white;box-shadow:0 6px 18px rgba(0,0,0,.08);transition:.2s}
-.main-btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,0,0,.12)}
-.popup-card{background:white;padding:1.25rem;margin:2rem auto;max-width:820px;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,.08)}
-.member img,.guide img{width:100%;height:180px;object-fit:cover;border-radius:8px}
-.team-grid{display:flex;gap:1rem;flex-wrap:wrap}
-.member,.guide{width:200px;text-align:center}
-body.popup {
-    display: block !important;
-    height: auto !important;
-    padding: 20px 0 !important;
+/* GLOBAL BASE */
+body {
+    margin: 0;
+    background: #f6f8fc;
+    font-family: Inter, Arial, sans-serif;
 }
 
+/* HOME PAGE ONLY (centered layout) */
+body.home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.center-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* MAIN BUTTONS */
+.main-btn {
+    width: 220px;
+    padding: 0.75rem 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    background: white;
+    box-shadow: 0 6px 18px rgba(0,0,0,.08);
+    transition: 0.2s;
+}
+
+.main-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(0,0,0,.12);
+}
+
+/* POPUP PAGES */
+body.popup {
+    display: block !important;      /* fixes cutoff */
+    height: auto !important;        /* fixes cutoff */
+    padding: 30px 0 !important;     /* adds breathing room */
+    overflow-y: auto;               /* ensures scroll works */
+}
+
+/* POPUP CARD CONTAINER */
+.popup-card {
+    background: white;
+    padding: 1.5rem 2rem;
+    margin: 0 auto;
+    max-width: 820px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,.08);
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+/* ENSURE TOP IS NEVER CUT OFF */
 .popup-card {
     margin-top: 20px !important;
+}
+
+/* TEAM PAGE STYLES */
+.member img,
+.guide img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.team-grid {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.member,
+.guide {
+    width: 200px;
+    text-align: center;
+}
+
+/* FIX IFRAME NOT SHOWING FULLY */
+iframe {
+    max-width: 100%;
+    border: none;
+    margin-top: 10px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+    .popup-card {
+        padding: 1rem;
+        margin-top: 10px !important;
+    }
+
+    .main-btn {
+        width: 180px;
+        font-size: 1rem;
+    }
 }
